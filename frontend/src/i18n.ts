@@ -4197,8 +4197,8 @@ declare const __FP3D_LANG_HASH__: string;
  * load texts they do not need) and are fetched once when Home Assistant runs in that language. Missing
  * keys fall back to English.
  */
-// "zh" is Simplified Chinese (zh-Hans; zh-Hant reads it too until it has its own), "pt" Portuguese for Portugal and Brazil
-export const EXTRA_LANGUAGES = ["fr", "es", "nl", "it", "hu", "da", "sv", "nb", "nn", "fi", "cs", "pl", "ro", "sl", "zh", "pt"] as const;
+// "uk" Ukrainian; "zh" Simplified Chinese (zh-Hans; zh-Hant reads it too until it has its own); "pt" Portuguese for Portugal and Brazil
+export const EXTRA_LANGUAGES = ["uk", "fr", "es", "nl", "it", "hu", "da", "sv", "nb", "nn", "fi", "cs", "pl", "ro", "sl", "zh", "pt"] as const;
 const extra = new Map<string, Record<string, string>>();
 const pending = new Map<string, Promise<void>>();
 

@@ -27,41 +27,41 @@ const floor = (id, name, elevation, rooms) => ({
 });
 
 export const DEMO_FLOORS = {
-  keller: { floor_id: "keller", name: "Keller", level: -1 },
-  erdgeschoss: { floor_id: "erdgeschoss", name: "Erdgeschoss", level: 0 },
-  obergeschoss: { floor_id: "obergeschoss", name: "Obergeschoss", level: 1 },
-  dachgeschoss: { floor_id: "dachgeschoss", name: "Dachgeschoss", level: 2 },
+  keller: { floor_id: "keller", name: "Підвал", level: -1 },
+  erdgeschoss: { floor_id: "erdgeschoss", name: "Перший поверх", level: 0 },
+  obergeschoss: { floor_id: "obergeschoss", name: "Другий поверх", level: 1 },
+  dachgeschoss: { floor_id: "dachgeschoss", name: "Горище", level: 2 },
 };
 
 export const DEMO_AREAS = {
-  wohnzimmer: { area_id: "wohnzimmer", name: "Wohnzimmer", floor_id: "erdgeschoss" },
-  kueche: { area_id: "kueche", name: "Küche", floor_id: "erdgeschoss" },
-  schlafzimmer: { area_id: "schlafzimmer", name: "Schlafzimmer", floor_id: "erdgeschoss" },
-  bad: { area_id: "bad", name: "Bad", floor_id: "erdgeschoss" },
-  flur: { area_id: "flur", name: "Flur", floor_id: "erdgeschoss" },
-  kinderzimmer: { area_id: "kinderzimmer", name: "Kinderzimmer", floor_id: "obergeschoss" },
-  arbeitszimmer: { area_id: "arbeitszimmer", name: "Arbeitszimmer", floor_id: "obergeschoss" },
-  garage: { area_id: "garage", name: "Garage", floor_id: "erdgeschoss" },
-  waschkueche: { area_id: "waschkueche", name: "Waschküche", floor_id: "keller" },
-  heizung: { area_id: "heizung", name: "Heizungsraum", floor_id: "keller" },
-  vorrat: { area_id: "vorrat", name: "Vorratsraum", floor_id: "keller" },
-  hobby: { area_id: "hobby", name: "Hobbyraum", floor_id: "keller" },
-  garten: { area_id: "garten", name: "Garten", floor_id: "erdgeschoss" },
+  wohnzimmer: { area_id: "wohnzimmer", name: "Вітальня", floor_id: "erdgeschoss" },
+  kueche: { area_id: "kueche", name: "Кухня", floor_id: "erdgeschoss" },
+  schlafzimmer: { area_id: "schlafzimmer", name: "Спальня", floor_id: "erdgeschoss" },
+  bad: { area_id: "bad", name: "Ванна", floor_id: "erdgeschoss" },
+  flur: { area_id: "flur", name: "Коридор", floor_id: "erdgeschoss" },
+  kinderzimmer: { area_id: "kinderzimmer", name: "Дитяча", floor_id: "obergeschoss" },
+  arbeitszimmer: { area_id: "arbeitszimmer", name: "Кабінет", floor_id: "obergeschoss" },
+  garage: { area_id: "garage", name: "Гараж", floor_id: "erdgeschoss" },
+  waschkueche: { area_id: "waschkueche", name: "Пральня", floor_id: "keller" },
+  heizung: { area_id: "heizung", name: "Котельня", floor_id: "keller" },
+  vorrat: { area_id: "vorrat", name: "Комора", floor_id: "keller" },
+  hobby: { area_id: "hobby", name: "Хобі", floor_id: "keller" },
+  garten: { area_id: "garten", name: "Сад", floor_id: "erdgeschoss" },
 };
 
 export const DEMO_BUILDING = {
   version: 1,
   settings: {
-    pets: { on: true, list: [{ id: "pet_mia", kind: "cat", name: "Mia", fur: "orange" }, { id: "pet_bello", kind: "dog", breed: "labrador", name: "Bello", fur: "golden" }, { id: "pet_kruemel", kind: "dog", breed: "dachshund", name: "Krümel", fur: "brown" }] }, wall_exterior: 0.24, wall_interior: 0.12, grid: 0.05 },
+    pets: { on: true, list: [{ id: "pet_mia", kind: "cat", name: "Mia", fur: "orange" }, { id: "pet_bello", kind: "dog", breed: "labrador", name: "Bello", fur: "golden" }, { id: "pet_kruemel", kind: "dog", breed: "dachshund", name: "Крихітка", fur: "brown" }] }, wall_exterior: 0.24, wall_interior: 0.12, grid: 0.05 },
   floors: [
-    floor("eg", "Erdgeschoss", 0, [
-      rect("wohnen", "Wohnzimmer", "wohnzimmer", 0, 0, 6, 4.6),
-      rect("kueche", "Küche", "kueche", 6, 0, 10, 4.6, "tiles"),
-      rect("schlafen", "Schlafzimmer", "schlafzimmer", 0, 4.6, 4.4, 8, "carpet"),
-      rect("bad", "Bad", "bad", 4.4, 4.6, 6.8, 8, "tiles"),
+    floor("eg", "Перший поверх", 0, [
+      rect("wohnen", "Вітальня", "wohnzimmer", 0, 0, 6, 4.6),
+      rect("kueche", "Кухня", "kueche", 6, 0, 10, 4.6, "tiles"),
+      rect("schlafen", "Спальня", "schlafzimmer", 0, 4.6, 4.4, 8, "carpet"),
+      rect("bad", "Ванна", "bad", 4.4, 4.6, 6.8, 8, "tiles"),
       {
         id: "flur",
-        name: "Flur",
+        name: "Коридор",
         area_id: "flur",
         points: [
           [6.8, 4.6],
@@ -73,21 +73,22 @@ export const DEMO_BUILDING = {
         ],
         floor_material: "oak",
       },
-      rect("garage", "Garage", "garage", 10, 0, 13.6, 5.2, "concrete"),
+      rect("garage", "Гараж", "garage", 10, 0, 13.6, 5.2, "concrete"),
     ]),
-    floor("og", "Obergeschoss", 2.75, [
-      { ...rect("kind", "Kinderzimmer", "kinderzimmer", 0, 0, 4.4, 4.2, "carpet"), wall_thickness: [0.365, null, null, null] },
-      rect("arbeit", "Arbeitszimmer", "arbeitszimmer", 4.4, 0, 10, 4.2, "oak"),
-      rect("badog", "Bad oben", null, 0, 4.2, 3.4, 8, "tiles"),
-      rect("gast", "Gästezimmer", null, 3.4, 4.2, 10, 8),
+    floor("og", "Другий поверх", 2.75, [
+      { ...rect("kind", "Дитяча", "kinderzimmer", 0, 0, 4.4, 4.2, "carpet"), wall_thickness: [0.365, null, null, null] },
+      rect("arbeit", "Кабінет", "arbeitszimmer", 4.4, 0, 10, 4.2, "oak"),
+      rect("badog", "Ванна вгорі", null, 0, 4.2, 3.4, 8, "tiles"),
+      rect("gast", "Гостьова", null, 3.4, 4.2, 10, 8),
     ]),
   ],
 };
 
 // Invented pictures (no real logos or photos): a cover for the TV and a camera still.
-const svgPicture = (body) => `data:image/svg+xml;base64,${btoa(body)}`;
+// encodeURIComponent (not btoa): SVG labels may be Ukrainian and btoa only accepts Latin-1.
+const svgPicture = (body) => `data:image/svg+xml;charset=utf-8,${encodeURIComponent(body)}`;
 const COVER = svgPicture(
-  '<svg xmlns="http://www.w3.org/2000/svg" width="320" height="180"><defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#2b0a3d"/><stop offset="1" stop-color="#b3122e"/></linearGradient></defs><rect width="320" height="180" fill="url(#g)"/><circle cx="240" cy="70" r="38" fill="#ffb547" opacity="0.85"/><path d="M0 150 L90 95 L150 130 L230 80 L320 140 L320 180 L0 180 Z" fill="#12061c"/><text x="24" y="52" font-family="sans-serif" font-size="30" font-weight="700" fill="#fff">Serie</text></svg>',
+  '<svg xmlns="http://www.w3.org/2000/svg" width="320" height="180"><defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#2b0a3d"/><stop offset="1" stop-color="#b3122e"/></linearGradient></defs><rect width="320" height="180" fill="url(#g)"/><circle cx="240" cy="70" r="38" fill="#ffb547" opacity="0.85"/><path d="M0 150 L90 95 L150 130 L230 80 L320 140 L320 180 L0 180 Z" fill="#12061c"/><text x="24" y="52" font-family="sans-serif" font-size="30" font-weight="700" fill="#fff">Серіал</text></svg>',
 );
 // a stored picture for a screen rule (shown on the TV while Netflix runs)
 export const DEMO_PICTURES = {
@@ -96,11 +97,11 @@ export const DEMO_PICTURES = {
   ),
 };
 const DOOR_STILL = svgPicture(
-  '<svg xmlns="http://www.w3.org/2000/svg" width="320" height="180"><defs><linearGradient id="s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a2440"/><stop offset="1" stop-color="#3b3350"/></linearGradient></defs><rect width="320" height="180" fill="url(#s)"/><rect x="0" y="118" width="320" height="62" fill="#2b2f38"/><polygon points="120,180 200,180 178,118 142,118" fill="#4a4f5c"/><rect x="40" y="70" width="36" height="48" fill="#1d3b2a"/><rect x="250" y="62" width="44" height="56" fill="#1d3b2a"/><rect x="146" y="96" width="28" height="22" fill="#20242c"/><circle cx="160" cy="62" r="12" fill="#c9a27a"/><rect x="146" y="74" width="28" height="46" rx="8" fill="#3c6ea8"/><rect x="0" y="0" width="320" height="16" fill="#00000066"/><text x="8" y="12" font-family="monospace" font-size="10" fill="#e6eefc">HAUSTUER  18:42:07</text></svg>',
+  '<svg xmlns="http://www.w3.org/2000/svg" width="320" height="180"><defs><linearGradient id="s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a2440"/><stop offset="1" stop-color="#3b3350"/></linearGradient></defs><rect width="320" height="180" fill="url(#s)"/><rect x="0" y="118" width="320" height="62" fill="#2b2f38"/><polygon points="120,180 200,180 178,118 142,118" fill="#4a4f5c"/><rect x="40" y="70" width="36" height="48" fill="#1d3b2a"/><rect x="250" y="62" width="44" height="56" fill="#1d3b2a"/><rect x="146" y="96" width="28" height="22" fill="#20242c"/><circle cx="160" cy="62" r="12" fill="#c9a27a"/><rect x="146" y="74" width="28" height="46" rx="8" fill="#3c6ea8"/><rect x="0" y="0" width="320" height="16" fill="#00000066"/><text x="8" y="12" font-family="monospace" font-size="10" fill="#e6eefc">ДВЕРІ  18:42:07</text></svg>',
 );
 
 const CAMERA_STILL = svgPicture(
-  '<svg xmlns="http://www.w3.org/2000/svg" width="320" height="180"><rect width="320" height="180" fill="#1b2230"/><rect x="0" y="120" width="320" height="60" fill="#2a3444"/><rect x="40" y="60" width="90" height="70" fill="#3b4a60"/><rect x="190" y="40" width="80" height="90" fill="#324055"/><text x="12" y="20" font-family="monospace" font-size="12" fill="#cfd8e6">KAMERA 1  12:04:31</text></svg>',
+  '<svg xmlns="http://www.w3.org/2000/svg" width="320" height="180"><rect width="320" height="180" fill="#1b2230"/><rect x="0" y="120" width="320" height="60" fill="#2a3444"/><rect x="40" y="60" width="90" height="70" fill="#3b4a60"/><rect x="190" y="40" width="80" height="90" fill="#324055"/><text x="12" y="20" font-family="monospace" font-size="12" fill="#cfd8e6">КАМЕРА 1  12:04:31</text></svg>',
 );
 
 // Invented devices: registry entries, states and placements for the preview.
@@ -123,27 +124,27 @@ const light = (id, name, area, on, extra = {}) => ({
 const entity = (entity_id, area, state, attributes) => ({ entry: { entity_id, area_id: area }, state: { entity_id, state, attributes } });
 
 const DEVICES = [
-  light("wohnzimmer_decke", "Wohnzimmer Deckenlicht", "wohnzimmer", true),
-  light("stehlampe", "Stehlampe", "wohnzimmer", true, { brightness: 90, color_mode: "hs", rgb_color: [255, 150, 60] }),
-  light("kueche", "Küchenlicht", "kueche", false),
-  light("schlafzimmer", "Schlafzimmer Decke", "schlafzimmer", false),
-  light("nachttisch", "Nachttisch", "schlafzimmer", true, { brightness: 60 }),
-  light("bad", "Bad Spots", "bad", true, { brightness: 220, color_temp_kelvin: 4000 }),
-  light("flur", "Flurlicht", "flur", true, { brightness: 120 }),
-  light("kinderzimmer", "Kinderzimmer Decke", "kinderzimmer", true, { brightness: 150 }),
-  entity("fan.kinderzimmer", "kinderzimmer", "on", { friendly_name: "Kinderzimmer Ventilator", percentage: 66, percentage_step: 33 }),
-  light("schreibtisch", "Schreibtischlampe", "arbeitszimmer", true, { color_temp_kelvin: 4500 }),
-  light("esstisch", "Esstisch Pendel", "kueche", true, { brightness: 140 }),
-  light("kueche_links", "Küche links", "kueche", true, { brightness: 230, color_mode: "hs", rgb_color: [255, 70, 40] }),
-  light("kueche_rechts", "Küche rechts", "kueche", true, { brightness: 230, color_mode: "hs", rgb_color: [60, 110, 255] }),
-  light("garten", "Garten Wegleuchten", "garten", true, { brightness: 170 }),
-  light("pool", "Pool Spot", null, true, { brightness: 200, color_mode: "hs", rgb_color: [40, 200, 255] }),
-  light("haustuer", "Haustür Außenlicht", "flur", true, { brightness: 200 }),
-  light("led_band", "LED Band", "wohnzimmer", true, { brightness: 160, color_mode: "hs", rgb_color: [120, 90, 255], effect: "colorloop", effect_list: ["colorloop", "none"] }),
-  entity("cover.wohnzimmer", "wohnzimmer", "open", { friendly_name: "Wohnzimmer Rollladen", current_position: 70, supported_features: 15 }),
-  entity("cover.kueche", "kueche", "open", { friendly_name: "Rollladen Küche", current_position: 40, supported_features: 15 }),
+  light("wohnzimmer_decke", "Стеля вітальні", "wohnzimmer", true),
+  light("stehlampe", "Торшер", "wohnzimmer", true, { brightness: 90, color_mode: "hs", rgb_color: [255, 150, 60] }),
+  light("kueche", "Світло кухні", "kueche", false),
+  light("schlafzimmer", "Стеля спальні", "schlafzimmer", false),
+  light("nachttisch", "Нічник", "schlafzimmer", true, { brightness: 60 }),
+  light("bad", "Споти ванної", "bad", true, { brightness: 220, color_temp_kelvin: 4000 }),
+  light("flur", "Світло коридору", "flur", true, { brightness: 120 }),
+  light("kinderzimmer", "Стеля дитячої", "kinderzimmer", true, { brightness: 150 }),
+  entity("fan.kinderzimmer", "kinderzimmer", "on", { friendly_name: "Вентилятор дитячої", percentage: 66, percentage_step: 33 }),
+  light("schreibtisch", "Настільна лампа", "arbeitszimmer", true, { color_temp_kelvin: 4500 }),
+  light("esstisch", "Люстра над столом", "kueche", true, { brightness: 140 }),
+  light("kueche_links", "Кухня зліва", "kueche", true, { brightness: 230, color_mode: "hs", rgb_color: [255, 70, 40] }),
+  light("kueche_rechts", "Кухня справа", "kueche", true, { brightness: 230, color_mode: "hs", rgb_color: [60, 110, 255] }),
+  light("garten", "Доріжка в саду", "garten", true, { brightness: 170 }),
+  light("pool", "Прожектор басейну", null, true, { brightness: 200, color_mode: "hs", rgb_color: [40, 200, 255] }),
+  light("haustuer", "Зовнішнє світло біля дверей", "flur", true, { brightness: 200 }),
+  light("led_band", "LED-стрічка", "wohnzimmer", true, { brightness: 160, color_mode: "hs", rgb_color: [120, 90, 255], effect: "colorloop", effect_list: ["colorloop", "none"] }),
+  entity("cover.wohnzimmer", "wohnzimmer", "open", { friendly_name: "Ролета вітальні", current_position: 70, supported_features: 15 }),
+  entity("cover.kueche", "kueche", "open", { friendly_name: "Ролета кухні", current_position: 40, supported_features: 15 }),
   entity("climate.wohnzimmer", "wohnzimmer", "heat", {
-    friendly_name: "Wohnzimmer Heizung",
+    friendly_name: "Опалення вітальні",
     current_temperature: 21.4,
     temperature: 21.5,
     hvac_modes: ["off", "heat", "auto"],
@@ -153,7 +154,7 @@ const DEVICES = [
     target_temp_step: 0.5,
   }),
   entity("climate.schlafzimmer", "schlafzimmer", "heat", {
-    friendly_name: "Schlafzimmer Heizung",
+    friendly_name: "Опалення спальні",
     current_temperature: 18.2,
     temperature: 18,
     hvac_modes: ["off", "heat"],
@@ -161,100 +162,100 @@ const DEVICES = [
     min_temp: 5,
     max_temp: 30,
   }),
-  entity("media_player.fernseher", "wohnzimmer", "playing", { friendly_name: "Fernseher", device_class: "tv", app_name: "Netflix", media_title: "Serie", volume_level: 0.35, entity_picture: COVER }),
-  entity("media_player.kueche_lautsprecher", "kueche", "playing", { friendly_name: "Küche Lautsprecher", device_class: "speaker", media_title: "Blue Train", media_artist: "John Coltrane", volume_level: 0.45, entity_picture: COVER, group_members: ["media_player.kueche_lautsprecher", "media_player.bad_lautsprecher"] }),
-  entity("media_player.bad_lautsprecher", "bad", "playing", { friendly_name: "Bad Lautsprecher", device_class: "speaker", media_title: "Blue Train", media_artist: "John Coltrane", volume_level: 0.3, entity_picture: COVER, group_members: ["media_player.kueche_lautsprecher", "media_player.bad_lautsprecher"] }),
-  entity("switch.kaffeemaschine", "kueche", "on", { friendly_name: "Kaffeemaschine" }),
-  entity("camera.wohnzimmer", "wohnzimmer", "idle", { friendly_name: "Wohnzimmer Kamera", entity_picture: CAMERA_STILL }),
+  entity("media_player.fernseher", "wohnzimmer", "playing", { friendly_name: "Телевізор", device_class: "tv", app_name: "Netflix", media_title: "Серіал", volume_level: 0.35, entity_picture: COVER }),
+  entity("media_player.kueche_lautsprecher", "kueche", "playing", { friendly_name: "Колонка кухні", device_class: "speaker", media_title: "Blue Train", media_artist: "John Coltrane", volume_level: 0.45, entity_picture: COVER, group_members: ["media_player.kueche_lautsprecher", "media_player.bad_lautsprecher"] }),
+  entity("media_player.bad_lautsprecher", "bad", "playing", { friendly_name: "Колонка ванної", device_class: "speaker", media_title: "Blue Train", media_artist: "John Coltrane", volume_level: 0.3, entity_picture: COVER, group_members: ["media_player.kueche_lautsprecher", "media_player.bad_lautsprecher"] }),
+  entity("switch.kaffeemaschine", "kueche", "on", { friendly_name: "Кавоварка" }),
+  entity("camera.wohnzimmer", "wohnzimmer", "idle", { friendly_name: "Камера вітальні", entity_picture: CAMERA_STILL }),
   // the front door: a camera and its doorbell (one device), for the live director
-  entity("camera.haustuer", "flur", "idle", { friendly_name: "Haustür Kamera", entity_picture: DOOR_STILL }),
-  entity("event.haustuer_klingel", "flur", "2026-10-19T08:00:00.000Z", { friendly_name: "Haustür Klingel", device_class: "doorbell", event_type: "ring" }),
-  entity("sensor.wohnzimmer_temperatur", "wohnzimmer", "21.4", { friendly_name: "Wohnzimmer Temperatur", device_class: "temperature", unit_of_measurement: "°C" }),
-  entity("sensor.kueche_temperatur", "kueche", "23.4", { friendly_name: "Küche Temperatur", device_class: "temperature", unit_of_measurement: "°C" }),
-  entity("sensor.schlafzimmer_temperatur", "schlafzimmer", "18.1", { friendly_name: "Schlafzimmer Temperatur", device_class: "temperature", unit_of_measurement: "°C" }),
-  entity("sensor.bad_temperatur", "bad", "24.6", { friendly_name: "Bad Temperatur", device_class: "temperature", unit_of_measurement: "°C" }),
-  entity("sensor.flur_temperatur", "flur", "19.6", { friendly_name: "Flur Temperatur", device_class: "temperature", unit_of_measurement: "°C" }),
-  entity("sensor.garten_temperatur", "garten", "14.2", { friendly_name: "Garten Temperatur", device_class: "temperature", unit_of_measurement: "°C" }),
-  entity("sun.sun", null, "above_horizon", { friendly_name: "Sonne", elevation: 32, azimuth: 205 }),
-  entity("sensor.wohnzimmer_feuchte", "wohnzimmer", "48", { friendly_name: "Wohnzimmer Luftfeuchtigkeit", device_class: "humidity", unit_of_measurement: "%" }),
-  entity("binary_sensor.kueche_fenster", "kueche", "on", { friendly_name: "Küche Fenster", device_class: "window" }),
-  entity("binary_sensor.kueche_rauch", "kueche", "off", { friendly_name: "Küche Rauchmelder", device_class: "smoke" }),
-  entity("binary_sensor.garage_auto", "garage", "on", { friendly_name: "Auto in der Garage", device_class: "occupancy" }),
-  entity("sensor.van_ladestand", "garage", "78", { friendly_name: "Van Ladestand", device_class: "battery", unit_of_measurement: "%" }),
+  entity("camera.haustuer", "flur", "idle", { friendly_name: "Камера вхідних дверей", entity_picture: DOOR_STILL }),
+  entity("event.haustuer_klingel", "flur", "2026-10-19T08:00:00.000Z", { friendly_name: "Дзвінок вхідних дверей", device_class: "doorbell", event_type: "ring" }),
+  entity("sensor.wohnzimmer_temperatur", "wohnzimmer", "21.4", { friendly_name: "Температура вітальні", device_class: "temperature", unit_of_measurement: "°C" }),
+  entity("sensor.kueche_temperatur", "kueche", "23.4", { friendly_name: "Температура кухні", device_class: "temperature", unit_of_measurement: "°C" }),
+  entity("sensor.schlafzimmer_temperatur", "schlafzimmer", "18.1", { friendly_name: "Температура спальні", device_class: "temperature", unit_of_measurement: "°C" }),
+  entity("sensor.bad_temperatur", "bad", "24.6", { friendly_name: "Температура ванної", device_class: "temperature", unit_of_measurement: "°C" }),
+  entity("sensor.flur_temperatur", "flur", "19.6", { friendly_name: "Температура коридору", device_class: "temperature", unit_of_measurement: "°C" }),
+  entity("sensor.garten_temperatur", "garten", "14.2", { friendly_name: "Температура саду", device_class: "temperature", unit_of_measurement: "°C" }),
+  entity("sun.sun", null, "above_horizon", { friendly_name: "Сонце", elevation: 32, azimuth: 205 }),
+  entity("sensor.wohnzimmer_feuchte", "wohnzimmer", "48", { friendly_name: "Вологість вітальні", device_class: "humidity", unit_of_measurement: "%" }),
+  entity("binary_sensor.kueche_fenster", "kueche", "on", { friendly_name: "Вікно кухні", device_class: "window" }),
+  entity("binary_sensor.kueche_rauch", "kueche", "off", { friendly_name: "Кухня · дим", device_class: "smoke" }),
+  entity("binary_sensor.garage_auto", "garage", "on", { friendly_name: "Авто в гаражі", device_class: "occupancy" }),
+  entity("sensor.van_ladestand", "garage", "78", { friendly_name: "Фургон · заряд", device_class: "battery", unit_of_measurement: "%" }),
   // helpers standing in for a car without an integration (Auto Pro with input_number / input_boolean)
-  entity("input_number.test_ladestand", null, "78.0", { friendly_name: "Test Auto Ladestand", unit_of_measurement: "%", min: 0, max: 100, step: 1 }),
-  entity("input_number.test_reichweite", null, "312.0", { friendly_name: "Test Auto Reichweite", unit_of_measurement: "km", min: 0, max: 600, step: 1 }),
-  entity("input_number.test_ladeleistung", null, "0.0", { friendly_name: "Test Auto Ladeleistung", unit_of_measurement: "W", min: 0, max: 11000, step: 100 }),
-  entity("input_boolean.test_verriegelt", null, "on", { friendly_name: "Test Auto verriegelt" }),
-  entity("input_boolean.test_klima", null, "on", { friendly_name: "Test Auto Klima" }),
-  entity("input_boolean.test_auto_da", null, "on", { friendly_name: "Test Auto da" }),
-  entity("sensor.van_reichweite", "garage", "312", { friendly_name: "Van Reichweite", unit_of_measurement: "km" }),
-  entity("sensor.van_ladeleistung", "garage", "7400", { friendly_name: "Van Ladeleistung", device_class: "power", unit_of_measurement: "W" }),
-  entity("lock.van", "garage", "locked", { friendly_name: "Van Verriegelung" }),
-  entity("switch.van_klima", "garage", "on", { friendly_name: "Van Klima" }),
-  entity("sensor.garage_fahrzeugtyp", "garage", "van", { friendly_name: "Fahrzeugtyp Garage" }),
-  entity("device_tracker.zweitwagen", null, "not_home", { friendly_name: "Zweitwagen" }),
-  entity("weather.zuhause", null, "sunny", { friendly_name: "Wetter" }),
-  entity("alarm_control_panel.haus", null, "disarmed", { friendly_name: "Alarmanlage" }),
-  entity("scene.wohnzimmer_kino", "wohnzimmer", "unknown", { friendly_name: "Wohnzimmer Kino" }),
-  entity("scene.wohnzimmer_lesen", "wohnzimmer", "unknown", { friendly_name: "Wohnzimmer Lesen" }),
-  entity("script.wohnzimmer_alles_aus", "wohnzimmer", "off", { friendly_name: "Wohnzimmer Alles aus" }),
-  entity("binary_sensor.flur_bewegung", "flur", "off", { friendly_name: "Flur Bewegung", device_class: "motion" }),
-  entity("binary_sensor.kueche_praesenz", "kueche", "off", { friendly_name: "Küche Präsenz", device_class: "presence" }),
-  entity("binary_sensor.kuehlschrank_tuer", "kueche", "off", { friendly_name: "Kühlschrank Tür", device_class: "door" }),
-  entity("binary_sensor.gefrierfach_tuer", "kueche", "on", { friendly_name: "Gefrierfach Tür", device_class: "door" }),
-  entity("binary_sensor.wohnzimmer_kamera_bewegung", "wohnzimmer", "on", { friendly_name: "Wohnzimmer Kamera Bewegung", device_class: "motion" }),
-  entity("binary_sensor.wohnzimmer_kamera_person", "wohnzimmer", "on", { friendly_name: "Wohnzimmer Kamera Person", device_class: "occupancy" }),
-  entity("binary_sensor.haustuer", "flur", "off", { friendly_name: "Haustür", device_class: "door" }),
-  entity("binary_sensor.bad_fenster", "bad", "off", { friendly_name: "Bad Fenster", device_class: "window" }),
-  entity("binary_sensor.bad_wasser", "bad", "off", { friendly_name: "Bad Wassermelder", device_class: "moisture" }),
-  entity("binary_sensor.bett_links", "schlafzimmer", "on", { friendly_name: "Bett links belegt", device_class: "occupancy" }),
-  entity("binary_sensor.bett_rechts", "schlafzimmer", "off", { friendly_name: "Bett rechts belegt", device_class: "occupancy" }),
-  entity("cover.garagentor", "garage", "open", { friendly_name: "Garagentor", device_class: "garage", current_position: 60, supported_features: 15 }),
+  entity("input_number.test_ladestand", null, "78.0", { friendly_name: "Тест авто · заряд", unit_of_measurement: "%", min: 0, max: 100, step: 1 }),
+  entity("input_number.test_reichweite", null, "312.0", { friendly_name: "Тест авто · запас ходу", unit_of_measurement: "km", min: 0, max: 600, step: 1 }),
+  entity("input_number.test_ladeleistung", null, "0.0", { friendly_name: "Тест авто · зарядна потужність", unit_of_measurement: "W", min: 0, max: 11000, step: 100 }),
+  entity("input_boolean.test_verriegelt", null, "on", { friendly_name: "Тест авто · замкнено" }),
+  entity("input_boolean.test_klima", null, "on", { friendly_name: "Тест авто · клімат" }),
+  entity("input_boolean.test_auto_da", null, "on", { friendly_name: "Тест авто · вдома" }),
+  entity("sensor.van_reichweite", "garage", "312", { friendly_name: "Фургон · запас ходу", unit_of_measurement: "km" }),
+  entity("sensor.van_ladeleistung", "garage", "7400", { friendly_name: "Фургон · зарядна потужність", device_class: "power", unit_of_measurement: "W" }),
+  entity("lock.van", "garage", "locked", { friendly_name: "Фургон · замок" }),
+  entity("switch.van_klima", "garage", "on", { friendly_name: "Фургон · клімат" }),
+  entity("sensor.garage_fahrzeugtyp", "garage", "van", { friendly_name: "Тип авто в гаражі" }),
+  entity("device_tracker.zweitwagen", null, "not_home", { friendly_name: "Друге авто" }),
+  entity("weather.zuhause", null, "sunny", { friendly_name: "Погода" }),
+  entity("alarm_control_panel.haus", null, "disarmed", { friendly_name: "Сигналізація" }),
+  entity("scene.wohnzimmer_kino", "wohnzimmer", "unknown", { friendly_name: "Вітальня кінозал" }),
+  entity("scene.wohnzimmer_lesen", "wohnzimmer", "unknown", { friendly_name: "Вітальня читання" }),
+  entity("script.wohnzimmer_alles_aus", "wohnzimmer", "off", { friendly_name: "Вітальня все вимкнути" }),
+  entity("binary_sensor.flur_bewegung", "flur", "off", { friendly_name: "Коридор · рух", device_class: "motion" }),
+  entity("binary_sensor.kueche_praesenz", "kueche", "off", { friendly_name: "Кухня · присутність", device_class: "presence" }),
+  entity("binary_sensor.kuehlschrank_tuer", "kueche", "off", { friendly_name: "Двері холодильника", device_class: "door" }),
+  entity("binary_sensor.gefrierfach_tuer", "kueche", "on", { friendly_name: "Двері морозилки", device_class: "door" }),
+  entity("binary_sensor.wohnzimmer_kamera_bewegung", "wohnzimmer", "on", { friendly_name: "Камера вітальні · рух", device_class: "motion" }),
+  entity("binary_sensor.wohnzimmer_kamera_person", "wohnzimmer", "on", { friendly_name: "Камера вітальні · людина", device_class: "occupancy" }),
+  entity("binary_sensor.haustuer", "flur", "off", { friendly_name: "Вхідні двері", device_class: "door" }),
+  entity("binary_sensor.bad_fenster", "bad", "off", { friendly_name: "Вікно ванної", device_class: "window" }),
+  entity("binary_sensor.bad_wasser", "bad", "off", { friendly_name: "Ванна · протікання", device_class: "moisture" }),
+  entity("binary_sensor.bett_links", "schlafzimmer", "on", { friendly_name: "Ліжко зліва зайняте", device_class: "occupancy" }),
+  entity("binary_sensor.bett_rechts", "schlafzimmer", "off", { friendly_name: "Ліжко справа зайняте", device_class: "occupancy" }),
+  entity("cover.garagentor", "garage", "open", { friendly_name: "Гаражні ворота", device_class: "garage", current_position: 60, supported_features: 15 }),
   // Energie Pro: gas and water meters (counters)
-  entity("sensor.wasserzaehler", null, "412.318", { friendly_name: "Wasserzähler", device_class: "water", unit_of_measurement: "m³", state_class: "total_increasing" }),
+  entity("sensor.wasserzaehler", null, "412.318", { friendly_name: "Лічильник води", device_class: "water", unit_of_measurement: "m³", state_class: "total_increasing" }),
   // Pool Pro: an 8 x 4 m pool with heat pump, filter pump, light, pH and redox measurement and a cover
-  entity("sensor.pool_wassertemperatur", null, "27.4", { friendly_name: "Pool Wassertemperatur", device_class: "temperature", unit_of_measurement: "°C" }),
-  entity("climate.pool_waermepumpe", null, "heat", { friendly_name: "Pool Wärmepumpe", temperature: 28, current_temperature: 27.4, hvac_action: "heating", hvac_modes: ["off", "heat"], min_temp: 15, max_temp: 35, target_temp_step: 0.5 }),
-  entity("switch.pool_filterpumpe", null, "on", { friendly_name: "Pool Filterpumpe" }),
-  entity("sensor.pool_ph", null, "7.32", { friendly_name: "Pool pH" }),
-  entity("sensor.pool_redox", null, "712", { friendly_name: "Pool Redox", unit_of_measurement: "mV" }),
+  entity("sensor.pool_wassertemperatur", null, "27.4", { friendly_name: "Басейн · температура води", device_class: "temperature", unit_of_measurement: "°C" }),
+  entity("climate.pool_waermepumpe", null, "heat", { friendly_name: "Басейн · тепловий насос", temperature: 28, current_temperature: 27.4, hvac_action: "heating", hvac_modes: ["off", "heat"], min_temp: 15, max_temp: 35, target_temp_step: 0.5 }),
+  entity("switch.pool_filterpumpe", null, "on", { friendly_name: "Басейн · фільтр-насос" }),
+  entity("sensor.pool_ph", null, "7.32", { friendly_name: "Басейн pH" }),
+  entity("sensor.pool_redox", null, "712", { friendly_name: "Басейн redox", unit_of_measurement: "mV" }),
   // Haushalt Pro: an invented waste calendar and a "post" flag set by an automation
-  entity("calendar.abfallkalender", null, "off", { friendly_name: "Abfallkalender", message: "Papier", all_day: true }),
-  entity("input_boolean.post_da", null, "on", { friendly_name: "Post da" }),
-  entity("input_boolean.restmuell_rausgestellt", null, "on", { friendly_name: "Restmüll rausgestellt" }),
-  entity("sensor.monstera_feuchte", null, "14", { friendly_name: "Monstera Feuchte", device_class: "moisture", unit_of_measurement: "%" }),
-  entity("sensor.waschmaschine_restzeit", null, "23", { friendly_name: "Waschmaschine Restzeit", unit_of_measurement: "min" }),
-  entity("binary_sensor.kuehlschrank_filter", null, "on", { friendly_name: "Kühlschrank Wasserfilter", device_class: "problem" }),
-  entity("cover.pool_abdeckung", null, "open", { friendly_name: "Pool Abdeckung", current_position: 70, supported_features: 15 }),
-  entity("binary_sensor.wohnzimmer_terrasse", "wohnzimmer", "on", { friendly_name: "Terrassentür", device_class: "opening" }),
-  entity("vacuum.saugi", "wohnzimmer", "cleaning", { friendly_name: "Saugi", battery_level: 64 }),
-  entity("binary_sensor.wohnzimmer_terrasse_2", "wohnzimmer", "off", { friendly_name: "Terrassentür Standflügel", device_class: "opening" }),
-  entity("binary_sensor.schlafzimmer_fenster", "schlafzimmer", "on", { friendly_name: "Schlafzimmer Fenster", device_class: "window" }),
-  entity("binary_sensor.schlafzimmer_kipp", "schlafzimmer", "on", { friendly_name: "Schlafzimmer Fenster gekippt", device_class: "window" }),
-  entity("scene.wohnzimmer_film", "wohnzimmer", "2024-01-01T00:00:00", { friendly_name: "Wohnzimmer Film" }),
-  entity("scene.wohnzimmer_lesen", "wohnzimmer", "2024-01-01T00:00:00", { friendly_name: "Wohnzimmer Lesen" }),
-  entity("script.gute_nacht", "schlafzimmer", "off", { friendly_name: "Gute Nacht" }),
+  entity("calendar.abfallkalender", null, "off", { friendly_name: "Календар сміття", message: "Папір", all_day: true }),
+  entity("input_boolean.post_da", null, "on", { friendly_name: "Пошта є" }),
+  entity("input_boolean.restmuell_rausgestellt", null, "on", { friendly_name: "Побутове сміття виставлено" }),
+  entity("sensor.monstera_feuchte", null, "14", { friendly_name: "Монстера · вологість", device_class: "moisture", unit_of_measurement: "%" }),
+  entity("sensor.waschmaschine_restzeit", null, "23", { friendly_name: "Пральна · залишок", unit_of_measurement: "min" }),
+  entity("binary_sensor.kuehlschrank_filter", null, "on", { friendly_name: "Фільтр холодильника", device_class: "problem" }),
+  entity("cover.pool_abdeckung", null, "open", { friendly_name: "Накриття басейну", current_position: 70, supported_features: 15 }),
+  entity("binary_sensor.wohnzimmer_terrasse", "wohnzimmer", "on", { friendly_name: "Двері тераси", device_class: "opening" }),
+  entity("vacuum.saugi", "wohnzimmer", "cleaning", { friendly_name: "Пилосос", battery_level: 64 }),
+  entity("binary_sensor.wohnzimmer_terrasse_2", "wohnzimmer", "off", { friendly_name: "Двері тераси · глухе крило", device_class: "opening" }),
+  entity("binary_sensor.schlafzimmer_fenster", "schlafzimmer", "on", { friendly_name: "Вікно спальні", device_class: "window" }),
+  entity("binary_sensor.schlafzimmer_kipp", "schlafzimmer", "on", { friendly_name: "Вікно спальні прочинене", device_class: "window" }),
+  entity("scene.wohnzimmer_film", "wohnzimmer", "2024-01-01T00:00:00", { friendly_name: "Вітальня кіно" }),
+  entity("scene.wohnzimmer_lesen", "wohnzimmer", "2024-01-01T00:00:00", { friendly_name: "Вітальня читання" }),
+  entity("script.gute_nacht", "schlafzimmer", "off", { friendly_name: "На добраніч" }),
   // energy (invented values)
-  entity("sensor.netz_leistung", "flur", "420", { friendly_name: "Netz Leistung", device_class: "power", unit_of_measurement: "W" }),
-  entity("sensor.pv_leistung", "flur", "1150", { friendly_name: "PV Leistung", device_class: "power", unit_of_measurement: "W" }),
-  entity("sensor.balkon_leistung", "flur", "380", { friendly_name: "Balkonkraftwerk Leistung", device_class: "power", unit_of_measurement: "W" }),
-  entity("sensor.akku_leistung", "flur", "-300", { friendly_name: "Akku Leistung", device_class: "power", unit_of_measurement: "W" }),
-  entity("sensor.akku_ladestand", "flur", "64", { friendly_name: "Akku Ladestand", device_class: "battery", unit_of_measurement: "%" }),
-  entity("sensor.strompreis", null, "0.29", { friendly_name: "Strompreis", device_class: "monetary", unit_of_measurement: "€/kWh" }),
-  entity("sensor.fernseher_leistung", "wohnzimmer", "95", { friendly_name: "Fernseher Leistung", device_class: "power", unit_of_measurement: "W" }),
-  entity("sensor.kaffeemaschine_leistung", "kueche", "0.9", { friendly_name: "Kaffeemaschine Leistung", device_class: "power", unit_of_measurement: "kW" }),
-  entity("sensor.kuehlschrank_leistung", "kueche", "85", { friendly_name: "Kühlschrank Leistung", device_class: "power", unit_of_measurement: "W" }),
-  entity("sensor.waschmaschine_leistung", "bad", "430", { friendly_name: "Waschmaschine Leistung", device_class: "power", unit_of_measurement: "W" }),
-  entity("sensor.pc_leistung", "arbeitszimmer", "70", { friendly_name: "Computer Leistung", device_class: "power", unit_of_measurement: "W" }),
-  entity("sensor.gaszaehler", "garage", "4821.374", { friendly_name: "Gaszähler", device_class: "gas", unit_of_measurement: "m³" }),
+  entity("sensor.netz_leistung", "flur", "420", { friendly_name: "Мережа · потужність", device_class: "power", unit_of_measurement: "W" }),
+  entity("sensor.pv_leistung", "flur", "1150", { friendly_name: "СЕС · потужність", device_class: "power", unit_of_measurement: "W" }),
+  entity("sensor.balkon_leistung", "flur", "380", { friendly_name: "Балконна станція · потужність", device_class: "power", unit_of_measurement: "W" }),
+  entity("sensor.akku_leistung", "flur", "-300", { friendly_name: "Акумулятор · потужність", device_class: "power", unit_of_measurement: "W" }),
+  entity("sensor.akku_ladestand", "flur", "64", { friendly_name: "Акумулятор · заряд", device_class: "battery", unit_of_measurement: "%" }),
+  entity("sensor.strompreis", null, "0.29", { friendly_name: "Ціна електроенергії", device_class: "monetary", unit_of_measurement: "€/kWh" }),
+  entity("sensor.fernseher_leistung", "wohnzimmer", "95", { friendly_name: "Телевізор · потужність", device_class: "power", unit_of_measurement: "W" }),
+  entity("sensor.kaffeemaschine_leistung", "kueche", "0.9", { friendly_name: "Кавоварка · потужність", device_class: "power", unit_of_measurement: "kW" }),
+  entity("sensor.kuehlschrank_leistung", "kueche", "85", { friendly_name: "Холодильник · потужність", device_class: "power", unit_of_measurement: "W" }),
+  entity("sensor.waschmaschine_leistung", "bad", "430", { friendly_name: "Пральна · потужність", device_class: "power", unit_of_measurement: "W" }),
+  entity("sensor.pc_leistung", "arbeitszimmer", "70", { friendly_name: "Комп’ютер · потужність", device_class: "power", unit_of_measurement: "W" }),
+  entity("sensor.gaszaehler", "garage", "4821.374", { friendly_name: "Лічильник газу", device_class: "gas", unit_of_measurement: "m³" }),
   // people and their room sensors (as ESPresense or Bermuda would report them)
   entity("person.mia", null, "home", { friendly_name: "Mia" }),
-  entity("person.tom", null, "home", { friendly_name: "Tom Beispiel" }),
+  entity("person.tom", null, "home", { friendly_name: "Том Приклад" }),
   entity("person.lea", null, "not_home", { friendly_name: "Lea" }),
-  entity("sensor.mia_raum", null, "Wohnzimmer", { friendly_name: "Mia Raum" }),
-  entity("sensor.tom_raum", null, "Küche", { friendly_name: "Tom Raum" }),
-  entity("sensor.lea_raum", null, "not_home", { friendly_name: "Lea Raum" }),
+  entity("sensor.mia_raum", null, "Вітальня", { friendly_name: "Міа · кімната" }),
+  entity("sensor.tom_raum", null, "Кухня", { friendly_name: "Том · кімната" }),
+  entity("sensor.lea_raum", null, "not_home", { friendly_name: "Леа · кімната" }),
 ];
 // a LED matrix with many light entities: only the main one (without a name of its own) is shown first
 for (const [suffix, name] of [
@@ -267,7 +268,7 @@ for (const [suffix, name] of [
   const id = `light.pixeluhr${suffix}`;
   DEVICES.push({
     entry: { entity_id: id, area_id: "wohnzimmer", device_id: "d_pixeluhr", ...(name ? { name } : {}) },
-    state: { entity_id: id, state: "off", attributes: { friendly_name: name ? `Pixeluhr ${name}` : "Pixeluhr", supported_color_modes: ["hs"] } },
+    state: { entity_id: id, state: "off", attributes: { friendly_name: name ? `Піксельний годинник ${name}` : "Піксельний годинник", supported_color_modes: ["hs"] } },
   });
 }
 // devices with a power sensor of their own
@@ -307,7 +308,7 @@ DEMO_BUILDING.floors[0].placements = [
 
   place("light.flur", 8.8, 6.9),
 ];
-DEMO_BUILDING.floors[0].placements.push({ ...place("sensor.gaszaehler", 12.9, 4.6), name: "Gas Garage", show_name: true });
+DEMO_BUILDING.floors[0].placements.push({ ...place("sensor.gaszaehler", 12.9, 4.6), name: "Газ гараж", show_name: true });
 DEMO_BUILDING.floors[0].placements.push(
   place("sensor.kuehlschrank_leistung", 6.35, 0.8),
   place("sensor.waschmaschine_leistung", 6.4, 6.9),
@@ -478,7 +479,7 @@ DEMO_BUILDING.floors[1].furniture = [
 const area = (id, type, x0, z0, x1, z1) => ({ id, type, points: [[x0, z0], [x1, z0], [x1, z1], [x0, z1]] });
 DEMO_BUILDING.floors[0].outdoor = [
   // the garden acts as a room: tapped, it opens with its lights and the outdoor temperature (#100)
-  { ...area("a1", "lawn", -3, -8, 17, -0.3), area_id: "garten", name: "Garten" },
+  { ...area("a1", "lawn", -3, -8, 17, -0.3), area_id: "garten", name: "Сад" },
   area("a2", "lawn", -3, 9.5, 6.5, 14),
   area("a3", "terrace", 1.5, -2.8, 6.2, -0.3),
   {
@@ -533,7 +534,7 @@ DEMO_BUILDING.floors[0].furniture.push(
   { ...item("meter", 13.75, 0.11, 0.55, 0.21, 1.1), power: "sensor.netz_leistung" },
   { ...item("inverter", 13.0, 0.11, 0.5, 0.2, 0.65), id: "inv_main", power: "sensor.pv_leistung" },
   // a balcony plant of its own: a small inverter with its field on the north face
-  { ...item("inverter", 13.6, 0.11, 0.3, 0.15, 0.4), id: "inv_balkon", name: "Balkonkraftwerk", power: "sensor.balkon_leistung" },
+  { ...item("inverter", 13.6, 0.11, 0.3, 0.15, 0.4), id: "inv_balkon", name: "Балконна станція", power: "sensor.balkon_leistung" },
   { ...item("home_battery", 12.3, 0.14, 0.6, 0.25, 1.1), power: "sensor.akku_leistung", soc: "sensor.akku_ladestand" },
   item("wallbox", 10.6, 0.09, 0.3, 0.15, 0.42),
 );
@@ -542,8 +543,8 @@ DEMO_BUILDING.settings = {
   north: 0,
   favorites: ["scene.wohnzimmer_film", "scene.wohnzimmer_lesen", "script.gute_nacht"],
   buttons: [
-    { id: "b1", label: "Rollos", icon: "window-shutter", action: "fire_dom_event", data: { browser_mod: { service: "browser_mod.popup", data: { title: "Rollos" } } } },
-    { id: "b2", label: "Energie", icon: "lightning-bolt", action: "navigate", target: "/energy" },
+    { id: "b1", label: "Ролети", icon: "window-shutter", action: "fire_dom_event", data: { browser_mod: { service: "browser_mod.popup", data: { title: "Ролети" } } } },
+    { id: "b2", label: "Енергія", icon: "lightning-bolt", action: "navigate", target: "/energy" },
   ],
   // a solar field of 2 × 7 modules on the south side of the roof
   roof: { type: "gable", pitch: 35, overhang: 0.4,
@@ -552,8 +553,8 @@ DEMO_BUILDING.settings = {
       { id: "pv_balkon", face: "main:a", u: 1.4, v: 0.75, rows: 1, cols: 2, portrait: true, string: "str_balkon" },
     ],
     strings: [
-      { id: "str_main", name: "Strang Süd", entity: null, inverter: "inv_main" },
-      { id: "str_balkon", name: "Balkon", entity: null, inverter: "inv_balkon" },
+      { id: "str_main", name: "Ланцюг південь", entity: null, inverter: "inv_main" },
+      { id: "str_balkon", name: "Балкон", entity: null, inverter: "inv_balkon" },
     ],
     // a roof window beside it: open, with the blind half down
     windows: [{ id: "dachfenster", face: "main:b", u: 10.0, v: 1.0, contact: "binary_sensor.schlafzimmer_fenster", cover: "cover.kueche" }],
@@ -565,13 +566,13 @@ export const DEMO_PACK = {
   format: "fp3dpack",
   version: 1,
   id: "demo.pack",
-  name: "Demo-Pack",
+  name: "Демо-пак",
   publisher: "Demo",
   licensee: null,
   items: [
     {
       id: "cube_seat",
-      name: { de: "Sitzwürfel", en: "Seat cube" },
+      name: { de: "Sitzwürfel", en: "Seat cube", uk: "Пуф" },
       size: [0.45, 0.45, 0.45],
       parts: [
         { shape: "box", x: 0, z: 0, w: 1, d: 1, y: 0, h: 0.9, color: "fabric", edges: true },
